@@ -64,7 +64,8 @@ if uploaded_file is not None:
     cleaned_dataset['relative_humidity_stn1'] = (cleaned_dataset['actual_vapor_pressure_stn1'] / cleaned_dataset['saturation_vapor_pressure_stn1']) * 100
     cleaned_dataset.drop(['tavg_stn2', 'dewpoint_stn2', 'dewpoint_stn1', 'tavg_stn1', 'sunset_stn1', 'sunrise_stn1', 'actual_vapor_pressure_stn2','actual_vapor_pressure_stn1','saturation_vapor_pressure_stn2','saturation_vapor_pressure_stn1'], axis=1, inplace=True)
     
-    col = pd.read_csv('columns.csv')
+    col_path = os.path.join(dir_path, 'columns.csv')
+    col = pd.read_csv(col_path)
     cleaned_dataset.columns = cleaned_dataset.columns.str.lower()
     cleaned_dataset[list(set(col.columns.str.lower()) - set(cleaned_dataset.columns))] = 0
     cleaned_dataset = cleaned_dataset.reindex(columns=col.columns.str.lower())
