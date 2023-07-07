@@ -31,7 +31,7 @@ def cleaning(dataset):
     dataset = dataset.drop_duplicates()
     return dataset
 
-template_df = pd.read_csv('template.csv')
+template_df = pd.read_csv('template.csv', encoding='utf-8')
 template_string = template_df.to_csv(index=False)
 st.download_button(label="Download Prediction Template", data = template_string, file_name="prediction_template.csv")
 
