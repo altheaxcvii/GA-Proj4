@@ -4,6 +4,7 @@ import streamlit.components.v1 as components
 import os
 import pickle
 from sklearn.impute import SimpleImputer
+from sklearn.ensemble import GradientBoostingClassifier
 
 # Get the directory of the current file
 dir_path = os.path.dirname(os.path.realpath(__file__))
